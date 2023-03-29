@@ -13,7 +13,8 @@ public class OrderDetails {
 
     @ManyToOne
     @JoinColumn (name = "id_order")
-    private Order idOrders;
+    private Orders idOrders;
+
 
     @ManyToOne
     @JoinColumn (name = "id_product")
