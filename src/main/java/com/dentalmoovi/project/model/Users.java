@@ -36,7 +36,17 @@ public class Users {
     @Column(nullable = true)
     private String apartament;
 
-    @ManyToOne
-    @JoinColumn(name = "id_role")
-    private Roles idRole;
+    //@ManyToOne
+    //@JoinColumn(name = "id_role")
+    //private Roles idRole;
+
+    public Users(String firstName, String lastName, String password, int celPhone, String city) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.celPhone = celPhone;
+        this.city = city;
+    }
+
+    
 }
