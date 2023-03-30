@@ -10,6 +10,11 @@ import lombok.Data;
 @Data
 @Table
 public class Roles {
+
+    public Roles(String name) {
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRole;
@@ -21,5 +26,5 @@ public class Roles {
     @JoinTable( name = "role_employee",
                 joinColumns = {@JoinColumn(name = "id_role")},
                 inverseJoinColumns = {@JoinColumn(name = "id_action")})
-    private List<Actions> idAction = new ArrayList<>();
+    private List<Actions> actions = new ArrayList<>();
 }

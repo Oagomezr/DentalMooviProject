@@ -8,13 +8,17 @@ import lombok.Data;
 @Table
 public class Domiciles {
 
+    public Domiciles(String address, String phone, String departament, String city, Users idUser) {
+        this.address = address;
+        this.phone = phone;
+        this.departament = departament;
+        this.city = city;
+        this.idUser = idUser;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDomicile;
-
-    @ManyToOne
-    @JoinColumn (name = "id_user")
-    private Users idUser;
 
     @Column(nullable = false)
     private String address;
@@ -26,8 +30,9 @@ public class Domiciles {
     private String departament;
 
     @Column(nullable = false)
-    private String municipality;
-
-    @Column(nullable = false)
     private String city;
+
+    @ManyToOne
+    @JoinColumn
+    private Users idUser;
 }

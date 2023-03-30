@@ -7,9 +7,23 @@ import lombok.Data;
 @Data
 @Table
 public class OrderDetails {
+
+    public OrderDetails(int amount, double price, Orders idOrders, Products idProduct) {
+        this.amount = amount;
+        this.price = price;
+        this.idOrders = idOrders;
+        this.idProduct = idProduct;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDetails;
+
+    @Column(nullable = false)
+    private int amount;
+
+    @Column(nullable = false)
+    private double price;
 
     @ManyToOne
     @JoinColumn (name = "id_order")
@@ -19,10 +33,4 @@ public class OrderDetails {
     @ManyToOne
     @JoinColumn (name = "id_product")
     private Products idProduct;
-
-    @Column(nullable = false)
-    private int amount;
-
-    @Column(nullable = false)
-    private double price;
 }

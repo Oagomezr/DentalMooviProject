@@ -10,6 +10,15 @@ import lombok.Data;
 @Table
 public class Products {
 
+    public Products(String name, double price, int stock, String lote, String invima, LocalDate expirationDate) {
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+        this.lote = lote;
+        this.invima = invima;
+        this.expirationDate = expirationDate;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduct;
@@ -21,7 +30,7 @@ public class Products {
     private double price;
 
     @Column(nullable = false)
-    private double stock;
+    private int stock;
 
     @Column(nullable = false)
     private String lote;
@@ -31,6 +40,4 @@ public class Products {
 
     @Column(nullable = true)
     private LocalDate expirationDate;
-
-    
 }

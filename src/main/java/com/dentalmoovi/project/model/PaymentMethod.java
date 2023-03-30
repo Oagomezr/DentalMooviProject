@@ -7,6 +7,11 @@ import lombok.Data;
 @Data
 @Table
 public class PaymentMethod {
+    
+    public PaymentMethod(String name) {
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPaymentMethod;

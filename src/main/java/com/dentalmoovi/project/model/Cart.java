@@ -8,6 +8,12 @@ import lombok.Data;
 @Table
 public class Cart {
 
+    public Cart(int amount, Users idUser, Products idProduct) {
+        this.amount = amount;
+        this.idUser = idUser;
+        this.idProduct = idProduct;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCart;

@@ -7,10 +7,20 @@ import lombok.Data;
 @Data
 @Table
 public class Actions {
+
+    public Actions(char name, Modules idModule) {
+        this.name = name;
+        this.idModule = idModule;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAction;
     
     @Column(nullable = false)
-    private String name;
+    private char name;
+
+    @ManyToOne
+    @JoinColumn
+    private Modules idModule;
 }
